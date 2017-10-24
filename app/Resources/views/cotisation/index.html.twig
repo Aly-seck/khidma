@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cotisation list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Montant</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cotisation in cotisations %}
+            <tr>
+                <td><a href="{{ path('cotisation_show', { 'id': cotisation.id }) }}">{{ cotisation.id }}</a></td>
+                <td>{% if cotisation.date %}{{ cotisation.date|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ cotisation.montant }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('cotisation_show', { 'id': cotisation.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('cotisation_edit', { 'id': cotisation.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('cotisation_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

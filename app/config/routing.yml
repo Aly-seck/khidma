@@ -1,0 +1,36 @@
+membre_statut:
+    resource: "@MembreBundle/Controller/StatutController.php"
+    type:     annotation
+
+membre_membre:
+    resource: "@MembreBundle/Controller/MembreController.php"
+    type:     annotation
+
+membre_engagement:
+    resource: "@MembreBundle/Controller/EngagementController.php"
+    type:     annotation
+
+membre_cotisation:
+    resource: "@MembreBundle/Controller/CotisationController.php"
+    type:     annotation
+
+membre_barkelou:
+    resource: "@MembreBundle/Controller/BarkelouController.php"
+    type:     annotation
+
+residence:
+    resource: "@ResidenceBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+membre:
+    resource: "@MembreBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

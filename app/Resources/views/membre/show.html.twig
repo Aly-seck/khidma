@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Membre</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ membre.id }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ membre.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ membre.nom }}</td>
+            </tr>
+            <tr>
+                <th>Numcni</th>
+                <td>{{ membre.numCNI }}</td>
+            </tr>
+            <tr>
+                <th>Addresse</th>
+                <td>{{ membre.addresse }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissance</th>
+                <td>{% if membre.dateNaissance %}{{ membre.dateNaissance|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Lieunaissance</th>
+                <td>{{ membre.lieuNaissance }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ membre.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ membre.sexe }}</td>
+            </tr>
+            <tr>
+                <th>Numinscription</th>
+                <td>{{ membre.numInscription }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ membre.photo }}</td>
+            </tr>
+            <tr>
+                <th>Anciennete</th>
+                <td>{{ membre.anciennete }}</td>
+            </tr>
+            <tr>
+                <th>Fonction</th>
+                <td>{{ membre.fonction }}</td>
+            </tr>
+            <tr>
+                <th>Observation</th>
+                <td>{{ membre.observation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('membre_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('membre_edit', { 'id': membre.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

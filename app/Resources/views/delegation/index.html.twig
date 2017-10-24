@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Delegation list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Chef</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>Type</th>
+                <th>Nombrepersonne</th>
+                <th>Lieu</th>
+                <th>Datearrive</th>
+                <th>Dateretour</th>
+                <th>Addresse</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for delegation in delegations %}
+            <tr>
+                <td><a href="{{ path('delegation_show', { 'id': delegation.id }) }}">{{ delegation.id }}</a></td>
+                <td>{{ delegation.chef }}</td>
+                <td>{{ delegation.telephone }}</td>
+                <td>{{ delegation.email }}</td>
+                <td>{{ delegation.type }}</td>
+                <td>{{ delegation.nombrePersonne }}</td>
+                <td>{{ delegation.lieu }}</td>
+                <td>{% if delegation.dateArrive %}{{ delegation.dateArrive|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if delegation.dateRetour %}{{ delegation.dateRetour|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ delegation.addresse }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('delegation_show', { 'id': delegation.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('delegation_edit', { 'id': delegation.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('delegation_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

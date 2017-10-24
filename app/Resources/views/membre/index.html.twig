@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Membre list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Prenom</th>
+                <th>Nom</th>
+                <th>Numcni</th>
+                <th>Addresse</th>
+                <th>Datenaissance</th>
+                <th>Lieunaissance</th>
+                <th>Telephone</th>
+                <th>Sexe</th>
+                <th>Numinscription</th>
+                <th>Photo</th>
+                <th>Anciennete</th>
+                <th>Fonction</th>
+                <th>Observation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for membre in membres %}
+            <tr>
+                <td><a href="{{ path('membre_show', { 'id': membre.id }) }}">{{ membre.id }}</a></td>
+                <td>{{ membre.prenom }}</td>
+                <td>{{ membre.nom }}</td>
+                <td>{{ membre.numCNI }}</td>
+                <td>{{ membre.addresse }}</td>
+                <td>{% if membre.dateNaissance %}{{ membre.dateNaissance|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ membre.lieuNaissance }}</td>
+                <td>{{ membre.telephone }}</td>
+                <td>{{ membre.sexe }}</td>
+                <td>{{ membre.numInscription }}</td>
+                <td>{{ membre.photo }}</td>
+                <td>{{ membre.anciennete }}</td>
+                <td>{{ membre.fonction }}</td>
+                <td>{{ membre.observation }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('membre_show', { 'id': membre.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('membre_edit', { 'id': membre.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('membre_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

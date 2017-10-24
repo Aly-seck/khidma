@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Barkelou list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Montant</th>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Evenement</th>
+                <th>Remarque</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for barkelou in barkelous %}
+            <tr>
+                <td><a href="{{ path('barkelou_show', { 'id': barkelou.id }) }}">{{ barkelou.id }}</a></td>
+                <td>{{ barkelou.montant }}</td>
+                <td>{% if barkelou.date %}{{ barkelou.date|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ barkelou.type }}</td>
+                <td>{{ barkelou.evenement }}</td>
+                <td>{{ barkelou.remarque }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('barkelou_show', { 'id': barkelou.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('barkelou_edit', { 'id': barkelou.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('barkelou_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

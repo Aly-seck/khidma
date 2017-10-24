@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Appartement list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Nombrechambre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for appartement in appartements %}
+            <tr>
+                <td><a href="{{ path('appartement_show', { 'id': appartement.id }) }}">{{ appartement.id }}</a></td>
+                <td>{{ appartement.nom }}</td>
+                <td>{{ appartement.nombreChambre }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('appartement_show', { 'id': appartement.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('appartement_edit', { 'id': appartement.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('appartement_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Delegation</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ delegation.id }}</td>
+            </tr>
+            <tr>
+                <th>Chef</th>
+                <td>{{ delegation.chef }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ delegation.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ delegation.email }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ delegation.type }}</td>
+            </tr>
+            <tr>
+                <th>Nombrepersonne</th>
+                <td>{{ delegation.nombrePersonne }}</td>
+            </tr>
+            <tr>
+                <th>Lieu</th>
+                <td>{{ delegation.lieu }}</td>
+            </tr>
+            <tr>
+                <th>Datearrive</th>
+                <td>{% if delegation.dateArrive %}{{ delegation.dateArrive|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dateretour</th>
+                <td>{% if delegation.dateRetour %}{{ delegation.dateRetour|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Addresse</th>
+                <td>{{ delegation.addresse }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('delegation_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('delegation_edit', { 'id': delegation.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

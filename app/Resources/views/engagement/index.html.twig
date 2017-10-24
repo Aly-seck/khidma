@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Engagement list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Debut</th>
+                <th>Fin</th>
+                <th>Montant</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for engagement in engagements %}
+            <tr>
+                <td><a href="{{ path('engagement_show', { 'id': engagement.id }) }}">{{ engagement.id }}</a></td>
+                <td>{% if engagement.debut %}{{ engagement.debut|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if engagement.fin %}{{ engagement.fin|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ engagement.montant }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('engagement_show', { 'id': engagement.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('engagement_edit', { 'id': engagement.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('engagement_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
