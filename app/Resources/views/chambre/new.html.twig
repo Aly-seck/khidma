@@ -1,16 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Chambre creation</h1>
+<div class="content-wrapper col-lg-3">
+    <h1>Chambre</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
     <ul>
-        <li>
-            <a href="{{ path('chambre_index') }}">Back to the list</a>
-        </li>
+        <input class="btn btn-primary btn-sm" type="submit" value="Valider" />
+        {{ form_end(form) }}
+        <a class="btn btn-primary btn-sm" href="{{ path('chambre_index') }}">Aller à la liste</a>
     </ul>
+</div>
 {% endblock %}

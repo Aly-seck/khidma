@@ -58,6 +58,9 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
+            {% block step %}
+                {{ render(controller("ResidenceBundle:Delegation:new")) }}
+            {% endblock %}
             <div class="row">
                 <div class="col-md-4">
                     <div id="composant" class="form-group">
@@ -68,6 +71,7 @@
                     <div id="axe" class="form-group">
                         <img style="width: 15%; margin-left: auto; margin-right: auto; display: block" src="{{ asset('img/ajax-loader.gif') }}" alt="loading"  id="minloadAxe">
                     </div>
+
                 </div>
                 <div class="col-md-4">
                     <div id="scope" class="form-group">
@@ -85,6 +89,7 @@
             </div>
             <!-- /.row -->
         </div>
+
     </div>
 {% endblock %}
 {% block body %}
