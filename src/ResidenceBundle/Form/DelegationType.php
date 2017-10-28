@@ -2,7 +2,9 @@
 
 namespace ResidenceBundle\Form;
 
-use Doctrine\DBAL\Types\DateType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -23,11 +25,21 @@ class DelegationType extends AbstractType
             ->add('type')
             ->add('nombrePersonne')
             ->add('lieu')
-            ->add('dateArrive', DateType::class)
-            ->add('dateRetour', DateType::class)
+            ->add('dateArrive', dateTimeType::class )
+            ->add('dateRetour', dateTimeType::class )
             ->add('addresse')
-            ->add('chambre')
-            ->add('accueillant')
+            ->add('chambre',EntityType::class,array(
+                'class'=>'ResidenceBundle\Entity\Chambre',
+                'choice_label'=>'numero',
+                'expanded'=>false,
+                'multiple'=>false
+            ))
+            ->add('accueillant',EntityType::class,array(
+                'class'=>'ResidenceBundle\Entity\Accueillant',
+                'choice_label'=>'telephone',
+                'expanded'=>false,
+                'multiple'=>false
+            ))
         ;
     }
     

@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use ResidenceBundle\Entity\Appartement;
 use ResidenceBundle\Form\AppartementType;
 
+
 /**
  * Appartement controller.
  *

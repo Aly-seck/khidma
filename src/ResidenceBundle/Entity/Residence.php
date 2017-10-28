@@ -93,5 +93,6 @@ class Residence
     {
         return $this->nombreAppartement;
     }
+
 }
 

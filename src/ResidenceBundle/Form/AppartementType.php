@@ -2,6 +2,7 @@
 
 namespace ResidenceBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,7 +18,12 @@ class AppartementType extends AbstractType
         $builder
             ->add('nom')
             ->add('nombreChambre')
-            ->add('residence')
+            ->add('residence',EntityType::class,array(
+        'class'=>'ResidenceBundle\Entity\Residence',
+        'choice_label'=>'nom',
+        'expanded'=>false,
+        'multiple'=>false
+    ))
         ;
     }
     
