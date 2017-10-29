@@ -1,20 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Chambre edit</h1>
-
+<div class="content-wrapper col-lg-3">
+    <h1> modifier Chambre</h1>
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+    <input class="btn btn-primary btn-sm" type="submit" value="Valider" />
     {{ form_end(edit_form) }}
 
     <ul>
         <li>
-            <a href="{{ path('chambre_index') }}">Back to the list</a>
+            <a class="btn btn-primary btn-sm" href="{{ path('residence_index') }}">Retour</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+            <input class="btn btn-primary btn-sm" type="submit" value="supprimer" />
             {{ form_end(delete_form) }}
         </li>
     </ul>

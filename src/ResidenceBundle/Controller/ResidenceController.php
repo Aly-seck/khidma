@@ -2,6 +2,8 @@
 
 namespace ResidenceBundle\Controller;
 
+use Doctrine\ORM\Query\Expr\From;
+use Doctrine\ORM\Query\Expr\Select;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -27,9 +29,23 @@ class ResidenceController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $residences = $em->getRepository('ResidenceBundle:Residence')->findAll();
+        $appatements = $em->getRepository('ResidenceBundle:Appartement')->findAll();
+        $responsables = $em->getRepository('ResidenceBundle:Responsable')->findAll();
+        $accueillants = $em->getRepository('ResidenceBundle:Accueillant')->findAll();
+        $chambres =  $em->getRepository('ResidenceBundle:Chambre')->findBy(
+            array('etat' =>'disponible')
+        );
+        $ochambres =  $em->getRepository('ResidenceBundle:Chambre')->findBy(
+            array('etat' =>'occupée')
+        );
 
         return $this->render('residence/index.html.twig', array(
             'residences' => $residences,
+            'appartements' => $appatements,
+            'responsables' => $responsables,
+            'accueillants'=> $accueillants,
+            'chambres' => $chambres,
+            'ochambres' => $ochambres
         ));
     }
 
