@@ -4,6 +4,7 @@ namespace ResidenceBundle\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,7 +18,12 @@ class ChambreType extends AbstractType
     {
         $builder
             ->add('numero')
-            ->add('etat')
+            ->add('etat',choiceType::class, array(
+                'label'    => 'Etat',
+                'choices' => array('disponible' => 'disponible', 'occupée'=> 'occupée'),
+                'expanded' => true,
+                'multiple' => false,
+            ))
             ->add('appartement',EntityType::class,array(
                 'class'=>'ResidenceBundle\Entity\Appartement',
                 'choice_label'=>'nom',
