@@ -25,8 +25,22 @@ class DelegationType extends AbstractType
             ->add('type')
             ->add('nombrePersonne')
             ->add('lieu')
-            ->add('dateArrive', dateTimeType::class )
-            ->add('dateRetour', dateTimeType::class )
+            ->add('dateArrive', dateTimeType::class,array(
+                'widget' => 'single_text',
+                'attr' => [
+                    'class' => 'form-control input-inline datepicker',
+                    'data-provide' => 'datepicker',
+                    'data-date-format' => 'dd-mm-yyyy'
+                ],
+            ))
+            ->add('dateRetour', dateTimeType::class,array(
+                'widget' => 'single_text',
+                'attr' => [
+                    'class' => 'form-control input-inline datepicker',
+                    'data-provide' => 'datepicker',
+                    'data-date-format' => 'dd-mm-yyyy'
+                ],
+            ))
             ->add('addresse')
             ->add('chambre',EntityType::class,array(
                 'class'=>'ResidenceBundle\Entity\Chambre',

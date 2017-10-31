@@ -3,6 +3,8 @@
 namespace ResidenceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Delegation
@@ -77,6 +79,7 @@ class Delegation
      * @var \DateTime
      *
      * @ORM\Column(name="dateArrive", type="datetime")
+     * @Assert\Date()
      */
     private $dateArrive;
 
@@ -84,6 +87,11 @@ class Delegation
      * @var \DateTime
      *
      * @ORM\Column(name="dateRetour", type="datetime")
+     * @Assert\Date()
+     * @Assert\Expression(
+     *     "this.getDateArrive() < this.getDateRetour()",
+     *     message="la date de retour doit être aprés la date d'arrivée"
+     * )
      */
     private $dateRetour;
 
