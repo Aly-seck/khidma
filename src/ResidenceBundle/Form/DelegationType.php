@@ -28,7 +28,7 @@ class DelegationType extends AbstractType
             ->add('dateArrive', dateTimeType::class,array(
                 'widget' => 'single_text',
                 'attr' => [
-                    'class' => 'form-control input-inline datepicker',
+                    'class' => 'form-control',
                     'data-provide' => 'datepicker',
                     'data-date-format' => 'dd-mm-yyyy'
                 ],
@@ -36,7 +36,7 @@ class DelegationType extends AbstractType
             ->add('dateRetour', dateTimeType::class,array(
                 'widget' => 'single_text',
                 'attr' => [
-                    'class' => 'form-control input-inline datepicker',
+                    'class' => 'form-control',
                     'data-provide' => 'datepicker',
                     'data-date-format' => 'dd-mm-yyyy'
                 ],

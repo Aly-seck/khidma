@@ -1,11 +1,12 @@
-
-
+{% extends 'base.html.twig' %}
 {% block body %}
-<div class="content-wrapper col-lg-5">
+<div class="container">
     <h1>Delegation</h1>
+    {{ form_start(form,{'method': 'post', 'action': path('delegation_new') }) }}
+    <div class="form-group">
+            {{ form_row(form.chef,{'attr': {'class': 'form-control', 'placeholder':'Le chef de chambre'}}) }}
+    </div>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
     <ul>
         <input class="btn btn-primary btn-sm" type="submit" value="Valider" />
         {{ form_end(form) }}

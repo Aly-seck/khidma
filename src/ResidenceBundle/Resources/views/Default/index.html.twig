@@ -1,14 +1,20 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_2.html.twig' %}
 
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <div id="welcome">
-                <h1 class="text-center">Bienvenue </h1>
-                <button type="button" class="btn btn-danger center-block">Connexion</button>
+    <body>
+
+    <div class="container">
+        <main role="main" >
+            <div class="jumbotron">
+                <img src="{{ asset('img/imagebis.svg') }}" alt="">
+                <h1 class="display-3">Bienvenue</h1>
+                <p class="lead">Veillez se connecter pour commencer votre sesssion</p>
+                <p><a class="btn btn-lg btn-success" href="{{ path('fos_user_security_login') }}" role="button">Se connecter</a></p>
             </div>
-        </div>
-    </div>
+        </main>
+
+    </div> <!-- /container -->
+    </body>
 {% endblock %}
 
 {% block stylesheets %}
