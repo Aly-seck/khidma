@@ -1,15 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="content-wrapper col-lg-3">
-    <h1>Responsable </h1>
+    <div class="container">
+        <h1>Responsable</h1>
+        {{ form_start(form,{'method': 'post', 'action': path('responsable_new') }) }}
+        <div class="form-group">
+            {{ form_row(form.nom,{'attr': {'class': 'form-control', 'placeholder':'Nom responsable'}}) }}
+            {{ form_row(form.prenom,{'attr': {'class': 'form-control', 'placeholder':'Prénom'}}) }}
+            {{ form_row(form.telephone,{'attr': {'class': 'form-control', 'placeholder':'numéro téléphone'}}) }}
+            <ul>
+                {{ form_row(form.valider, {'attr': {'class': 'btn btn-primary btn-sm '}}) }}
+                <a class="btn btn-primary btn-sm" href="{{ path('responsable_index') }}">Retour à la liste</a>
+            </ul>
+        </div>
+        {{ form_end(form) }}
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-    <ul>
-     <input class="btn btn-primary btn-sm" type="submit" value="Valider" />
-    {{ form_end(form) }}
-        <a class="btn btn-primary btn-sm" href="{{ path('responsable_index') }}">Aller à la liste</a>
-    </ul>
-</div>
+    </div>
 {% endblock %}

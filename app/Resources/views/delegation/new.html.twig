@@ -1,16 +1,27 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 <div class="container">
-    <h1>Delegation</h1>
+    <h1>Délégation</h1>
     {{ form_start(form,{'method': 'post', 'action': path('delegation_new') }) }}
-    <div class="form-group">
-            {{ form_row(form.chef,{'attr': {'class': 'form-control', 'placeholder':'Le chef de chambre'}}) }}
+    <div class="form-group col-lg-5">
+        {{ form_row(form.chef,{'attr': {'class': 'form-control', 'placeholder':'Le chef de délégation'}}) }}
+        {{ form_row(form.telephone,{'attr': {'class': 'form-control', 'placeholder':'téléphone du chef'}}) }}
+        {{ form_row(form.email,{'attr': {'class': 'form-control', 'placeholder':'E-mail'}}) }}
+        {{ form_row(form.type,{'attr': {'class': 'form-control', 'placeholder':'type de délégation'}}) }}
+        {{ form_row(form.nombrePersonne,{'attr': {'class': 'form-control', 'placeholder':'Nombre de personne'}}) }}
+        {{ form_row(form.lieu,{'attr': {'class': 'form-control', 'placeholder':'Lieu du délégation'}}) }}
     </div>
 
-    <ul>
-        <input class="btn btn-primary btn-sm" type="submit" value="Valider" />
-        {{ form_end(form) }}
-        <a class="btn btn-primary btn-sm" href="{{ path('delegation_index') }}">Aller à la liste</a>
-    </ul>
+    <div class="form-group col-lg-5">
+        {{ form_row(form.dateArrive,{'attr': {'class': 'form-control', 'placeholder':'La date arrivée'}}) }}
+        {{ form_row(form.dateRetour,{'attr': {'class': 'form-control', 'placeholder':'La date de retour'}}) }}
+        {{ form_row(form.addresse,{'attr': {'class': 'form-control', 'placeholder':'Addresse'}}) }}
+        {{ form_row(form.chambre,{'attr': {'class': 'form-control', 'placeholder':'Chambre occupée'}}) }}
+        {{ form_row(form.accueillant,{'attr': {'class': 'form-control', 'placeholder':'Accueillant'}}) }}
+        {{ form_row(form.valider, {'attr': {'class': 'btn btn-primary btn-sm'}}) }}
+    </div>
+
+    {{ form_end(form) }}
 </div>
+
 {% endblock %}

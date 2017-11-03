@@ -1,15 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="content-wrapper col-lg-3">
-    <h1>Chambre</h1>
-
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-    <ul>
-        <input class="btn btn-primary btn-sm" type="submit" value="Valider" />
+    <div class="container">
+        <h1>Chambre</h1>
+        {{ form_start(form,{'method': 'post', 'action': path('chambre_new') }) }}
+        <div class="form-group">
+            {{ form_row(form.numero,{'attr': {'class': 'form-control', 'placeholder':'Numéro chambre'}}) }}
+            {{ form_row(form.etat) }}
+            {{ form_row(form.appartement,{'attr': {'class': 'form-control', 'placeholder':'Appartement'}}) }}
+            {{ form_row(form.responsable,{'attr': {'class': 'form-control', 'placeholder':'Responsable chambre'}}) }}
+            <ul>
+                {{ form_row(form.valider, {'attr': {'class': 'btn btn-primary btn-sm '}}) }}
+                <a class="btn btn-primary btn-sm" href="{{ path('chambre_index') }}">Retour à la liste</a>
+            </ul>
+        </div>
         {{ form_end(form) }}
-        <a class="btn btn-primary btn-sm" href="{{ path('chambre_index') }}">Aller à la liste</a>
-    </ul>
-</div>
+
+    </div>
 {% endblock %}
