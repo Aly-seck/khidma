@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class ChambreType extends AbstractType
 {
@@ -20,7 +21,9 @@ class ChambreType extends AbstractType
             ->add('numero')
             ->add('etat',choiceType::class, array(
                 'label'    => 'Etat',
-                'choices' => array('disponible' => 'disponible', 'occupée'=> 'occupée'),
+                'choices' => array(
+                    'disponible' => 'disponible',
+                    'occupée'=> 'occupée'),
                 'expanded' => true,
                 'multiple' => false,
             ))

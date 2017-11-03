@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Delegation list</h1>
+    <h1>Liste délégations</h1>
 
     <table>
         <thead>
@@ -48,8 +48,8 @@
     </table>
 
     <ul>
-        <li>
-            <a href="{{ path('delegation_new') }}">Create a new entry</a>
-        </li>
+
+            <a class="btn btn-primary btn-sm" href="{{ path('delegation_new') }}">Ajouter une délégation</a>
+
     </ul>
 {% endblock %}

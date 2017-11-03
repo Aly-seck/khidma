@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Appartement list</h1>
+    <h1>Liste appartements</h1>
 
     <table class="table table-responsive table-hover">
         <thead>
@@ -34,8 +34,7 @@
     </table>
 
     <ul>
-        <li>
-            <a href="{{ path('appartement_new') }}">Create a new entry</a>
-        </li>
+            <a class="btn btn-primary btn-sm" href="{{ path('appartement_new') }}">Ajouter un appartement</a>
+
     </ul>
 {% endblock %}

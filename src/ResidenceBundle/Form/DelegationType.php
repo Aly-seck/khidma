@@ -6,9 +6,11 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\DateTime;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class DelegationType extends AbstractType
 {
@@ -21,7 +23,10 @@ class DelegationType extends AbstractType
         $builder
             ->add('chef')
             ->add('telephone')
-            ->add('email')
+            ->add('email',EmailType::class, array(
+                'required'    => true,
+                'constraints' => new Assert\Email(['checkMX' => true]),
+                  ))
             ->add('type')
             ->add('nombrePersonne')
             ->add('lieu')

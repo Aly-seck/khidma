@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Accueillant list</h1>
+    <h1>Liste accueillants </h1>
 
     <table>
         <thead>
@@ -36,8 +36,7 @@
     </table>
 
     <ul>
-        <li>
-            <a href="{{ path('accueillant_new') }}">Create a new entry</a>
-        </li>
+            <a class="btn btn-primary btn-sm" href="{{ path('accueillant_new') }}">Ajouter un accueillant</a>
+
     </ul>
 {% endblock %}
