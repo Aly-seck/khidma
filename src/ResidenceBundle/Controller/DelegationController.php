@@ -2,6 +2,8 @@
 
 namespace ResidenceBundle\Controller;
 
+use ResidenceBundle\Service\HTML2PDF;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -57,6 +59,47 @@ class DelegationController extends Controller
             'delegation' => $delegation,
             'form' => $form->createView(),
         ));
+    }
+
+    /**
+     * @Route("/exporterToPdf", name="genere_pdf")
+     * @Method({"GET", "POST"})
+     */
+    public function gernererPdf(Request $request)
+    {
+        $delegations=null;
+        $em = $this->getDoctrine()->getManager();
+
+        $delegations=$em->getRepository('ResidenceBundle:Delegation')->findAll();
+//        $first_name=$request->request->get('first_name');
+        //Geneer la facture
+
+            $numeroRapport= Rand(0,9999);
+            $filename = 'Delegation'. '_'. $numeroRapport ;
+            $approoot = $this->get('kernel')->getRootDir();
+            $pathtopdf = $approoot. '/../web/pdf';
+            $template = $this->renderView('views_pdf/delegation.html.twig', array(
+                'delegations' => $delegations,
+            ));
+            $dir=$pathtopdf.'/';
+            $files  = glob($dir. '*', GLOB_MARK);
+            $facture= $pathtopdf.'/'. $filename .'.pdf';
+
+            $nomfichier = $this->genereNom($filename, $files, $facture, $pathtopdf);
+
+            if ($nomfichier !== '') {
+                $htmltopdf = new HTML2PDF();
+                $htmltopdf->create('P', 'A4', 'fr', true, 'UTF-8', array(10, 15, 10, 15));
+
+                $htmltopdf->generatepdf($template, $nomfichier);
+                $resulat= array(
+                    'delegations' => $delegations,
+                );
+
+            }
+            return;
+
+//        return $this->render('confirmCommandeEnvoyer.html.twig');
     }
 
     /**
@@ -136,5 +179,22 @@ class DelegationController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+    public function genereNom( &$filename,$file, &$facture, $pathtopdf){
+        $exist = false;
+        foreach ($file as $item) {
+            if (is_file($item) && $item == $facture ) {
+                $exist = true ;
+            }
+        }
+        if ($exist == false) {
+            return $filename;
+        }
+        else {
+            $numeroFacture= Rand(0,9999);
+            $filename = 'facture'. '_'. $numeroFacture ;
+            $facture= $pathtopdf.'/'. $filename .'.pdf';
+            return $this->genereNom($filename,$file, $facture, $pathtopdf);
+        }
     }
 }

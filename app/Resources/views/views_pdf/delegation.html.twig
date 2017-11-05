@@ -1,0 +1,343 @@
+<style type="text/css">
+    <!--
+    table.tableLogo {
+        width:100%;
+    }
+    table.tableInfoClient {
+        width:100%;
+        text-align:right;
+        font-size:14px;
+        margin-top:10px;
+    }
+    table.tableInfoClient td{
+        width:76%;
+        padding-right:3px;
+        text-align:left;
+        padding-bottom:0px;
+    }
+    table.tableBar {
+        width:100%;
+    }
+    td.bar_1 {
+        width:13%;
+        text-align:left;
+    }
+    td.bar_1 div {
+        background:#777777;
+        height:1px;
+        float:left;
+        width:100%;
+    }
+    td.bar_2 {
+        width:50%;
+        text-align:left;
+    }
+    td.bar_2 div {
+        color:#777777;
+        font-weight:bold;
+        font-size:20px;
+        float:left;
+        font-style:italic;
+    }
+    td.bar_3 {
+        width:71%;
+        text-align:left;
+    }
+    td.bar_3 div {
+        background:#777777;
+        height:1px;
+        float:left;
+        width:100%;
+    }
+    table.tableAdresse {
+        border:1px;
+        width:100%;
+        font-size:14px;
+        margin-top:10px;
+    }
+    table.tableAdresse td {
+        border-width:1px;
+        padding:10px;
+    }
+    table.tableAdresse span {
+        color:#000000;
+        font-weight:bold;
+        font-size:14px;
+    }
+    table.tableDetails {
+        width:100%;
+        margin-top:15px;
+        border-top:1px;
+        border-left:1px;
+        border-bottom:1px;
+    }
+    table.tableDetails td {
+        font-size:14px;
+        padding:3px;
+    }
+    td.detailsTitre_1 {
+        font-weight:bold;
+        width:15%;
+        padding-bottom:10px;
+        border-right:1px;
+        text-align:left;
+    }
+    td.detailsTitre_2 {
+        font-weight:bold;
+        width:20%;
+        border-right:1px;
+        text-align:right;
+    }
+    td.details_1 {
+        text-align:center;
+        border-right:1px;
+        text-align:left;
+        padding-bottom:2px;
+    }
+    td.details_2 {
+        text-align:center;
+        border-right:1px;
+        text-align:right;
+    }
+    table.tableTotal {
+        width:100%;
+        font-size:14px;
+    }
+    td.total {
+        padding-top:3px;
+        padding-right:5px;
+        text-align:right;
+        width:100%;
+    }
+    table.page_footer {
+        width:100%;
+        border: none;
+        background-color:#DDDDFF;
+        border-top:solid 1mm #AAAADD;
+        padding:2mm;
+    }
+    table.page_footer td {
+        width:100%;
+        text-align:center;
+        font-size:14px;
+    }
+    table.page_footer span {
+        font-size:12px;
+    }
+    -->
+</style>
+<page backtop="15mm" backright="5mm" backbottom="15mm" backleft="5mm">
+    <table class="tableLogo">
+        <tr>
+            <td align="left" valign="top">
+                <h3>ici logo</h3>
+                {#<img src="{{ asset('img/resid.png') }} " style="size: 12px">#}
+            </td>
+        </tr>
+    </table>
+
+    <table class="tableInfoClient">
+        <tr>
+            <td>
+                {#<table cellspacing="0" cellpadding="0">#}
+                    {#<tr>#}
+                        {#<td>#}
+                            {#Numéro Facture : numfacture#}
+                        {#</td>#}
+                    {#</tr>#}
+                    {#<tr>#}
+                        {#<td>#}
+                            {#Nom :  last_name  first_name#}
+                        {#</td>#}
+                    {#</tr>#}
+                    {#<tr>#}
+                        {#<td>#}
+                            {#Email :  email#}
+                        {#</td>#}
+                    {#</tr>#}
+                {#</table>#}
+            </td>
+            <td>
+                <table cellspacing="0" cellpadding="0" style="padding-right:3px;">
+                    <tr>
+                        <td>
+                            Date :
+                        </td>
+                        <td>
+                            {{ 'now'|date('d - m -Y') }}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table class="tableBar">
+        <tr>
+            <td class="bar_1">
+                <div></div>
+            </td>
+            <td class="bar_2">
+                <div>Magal de Touba 1439H (2017) </div>
+            </td>
+            <td class="bar_3">
+                <div></div>
+            </td>
+        </tr>
+    </table>
+
+    <table class="tableAdresse" align="center">
+        <tr>
+            <td>
+                <span>
+                    Comité d'Organisation du Grand Magal de TOUBA
+                </span><br><br>
+                Adreessee ici
+            </td>
+        </tr>
+    </table>
+
+    <table class="tableDetails" cellspacing="0">
+        <tr>
+
+            <td class="detailsTitre_1">
+                Odre
+            </td>
+            <td class="detailsTitre_2">
+                Chef de la délègation
+            </td>
+             <td class="detailsTitre_2">
+                 Telephone
+            </td>
+            {#<td class="detailsTitre_2">#}
+                {#Email#}
+            {#</td>#}
+            {#<td class="detailsTitre_2">#}
+                {#Type#}
+            {#</td>#}
+            <td class="detailsTitre_2">
+                Nombre de personnes
+            </td>
+
+            {#<td class="detailsTitre_2">#}
+                {#Lieu#}
+            {#</td>#}
+            {#<td class="detailsTitre_2">#}
+                {#Datearrive#}
+                {#</td>#}
+            {#<td class="detailsTitre_2">#}
+                {#Dateretour#}
+                {#</td>#}
+            {#<td class="detailsTitre_2">#}
+                {#Adresse#}
+                {#</td>#}
+        </tr>
+        {% for delegation in delegations %}
+            <tr>
+                <td class="details_2">
+                    {{ delegation.id }}
+                </td>
+                <td class="details_2">
+                    <strong>{{ delegation.chef }}</strong>
+                </td>
+                <td class="details_2">
+                    <strong>{{ delegation.telephone }}</strong>
+                </td>
+                {#<td class="details_2">#}
+                    {#<strong>{{ delegation.email }}</strong>#}
+                {#</td>#}
+                {#<td class="details_2">#}
+                    {#<strong>{{ delegation.type }}</strong>#}
+                {#</td>#}
+                <td class="details_2">
+                    <strong>{{ delegation.nombrePersonne }}</strong>
+                </td>
+                {#<td class="details_2">#}
+                    {#<strong>{{ delegation.lieu }}</strong>#}
+                {#</td>#}
+                {#<td class="details_2">#}
+                    {#<strong>{{ delegation.nombrePersonne }}</strong>#}
+                {#</td>#}
+                {#<td class="details_2">#}
+                    {#<strong>{% if delegation.dateArrive %}{{ delegation.dateArrive|date('Y-m-d H:i:s') }}{% endif %}</strong>#}
+                {#</td>#}
+                {#<td class="details_2">#}
+                    {#<strong>{% if delegation.dateRetour %}{{ delegation.dateRetour|date('Y-m-d H:i:s') }}{% endif %}</strong>#}
+                {#</td>#}
+                {#<td class="details_2">#}
+                    {#<strong>{{ delegation.addresse }}</strong>#}
+                {#</td>#}
+            </tr>
+        {% endfor %}
+
+
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    {#<table class="tableTotal" cellspacing="0" cellpadding="0">#}
+        {#<tr>#}
+            {#<td>#}
+
+            {#</td>#}
+            {#<td>#}
+                {#<table width='0' border='0' align='right' cellpadding='0' cellspacing='0'>#}
+                    {#<tbody>#}
+                    {#<tr>#}
+                        {#<td width='0' align='left' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:15px 0px 3px 0px'>#}
+                            {#<strong>Taxe de Séjour Total</strong>#}
+                            {#<span style='font-size:11px;color:#666666'>(1000/personne)</span>#}
+                        {#</td>#}
+                        {#<td width='0' align='right' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:15px 5px 3px 5px'>#}
+                            {#{{ taxeSejour }}#}
+                        {#</td>#}
+                    {#</tr>#}
+                    {#<tr>#}
+                        {#<td width='0' align='left' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:15px 0px 3px 0px'>#}
+                            {#<strong>Montant Total HT:</strong>#}
+                            {#<span style='font-size:11px;color:#666666'></span>#}
+                        {#</td>#}
+                        {#<td width='0' align='right' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:15px 5px 3px 5px'>#}
+                            {#XOF {{ montantSansFrais * nbjours }}#}
+                        {#</td>#}
+                    {#</tr>#}
+                    {#<tr>#}
+                        {#<td align='left' valign='bottom' style='color:#404041;font-size:13px;line-height:16px;padding:5px 0px 3px 0px'>#}
+                            {#<hr>#}
+                        {#</td>#}
+                    {#</tr>#}
+                    {#<tr>#}
+                        {#<td align='left' valign='bottom' style='color:#404041;font-size:13px;line-height:16px;padding:5px 0px 3px 0px'>#}
+                            {#<strong>Total TTC:</strong>#}
+                        {#</td>#}
+                        {#<td width='62' align='right' valign='bottom' style='color:#db8113;font-size:13px;line-height:16px;padding:5px 5px 3px 5px'>#}
+                            {#<strong>XOF {{ total }}</strong>#}
+                        {#</td>#}
+                    {#</tr>#}
+                    {#</tbody>#}
+
+                {#</table>#}
+            {#</td>#}
+            {#<td class="total">#}
+
+            {#</td>#}
+        {#</tr>#}
+    {#</table>#}
+</page>
+<page_footer>
+    <table class="page_footer">
+        <tr>
+            <td>
+                <strong>Résidences FETO<br></strong>
+                <span>
+                    <br/> N°91 Sacré coeur II Pyrotechnique; N°71 Nord Foire route de l'aéroport;  N°71 Nord Foire route de l'aéroport
+                        <br/>Tel: +221 33 825 56 33 Fax: +221 33 868 16 69; Tel: +221 33 820 60 71 Fax: +221 820 15 24; Tel: +221 33 820 60 71 Fax: +221 820 15 24;
+                        <br/>Email: residencefeto@orange.sn - - NINEA: 002989848.2Y1 -RC: SNDKR 2010-M-154 24
+                        <br/> www.residences-lefeto.com
+                </span>
+            </td>
+        </tr>
+    </table>
+</page_footer>
