@@ -3,10 +3,10 @@
 {% block body %}
     <h1>Liste accueillants </h1>
 
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
-                <th>Id:</th>
+                <th>Id</th>
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Telephone</th>
@@ -23,10 +23,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('accueillant_show', { 'id': accueillant.id }) }}">show</a>
+                            <a href="{{ path('accueillant_show', { 'id': accueillant.id }) }}">voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('accueillant_edit', { 'id': accueillant.id }) }}">edit</a>
+                            <a href="{{ path('accueillant_edit', { 'id': accueillant.id }) }}">modifier</a>
                         </li>
                     </ul>
                 </td>

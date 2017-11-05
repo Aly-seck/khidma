@@ -21,7 +21,7 @@ class ChambreType extends AbstractType
         $builder
             ->add('numero')
             ->add('etat',choiceType::class, array(
-                'label'    => 'Etat',
+                'label'    => 'Etat chambre',
                 'choices' => array(
                     'disponible' => 'disponible',
                     'occupée'=> 'occupée'),
@@ -40,7 +40,6 @@ class ChambreType extends AbstractType
                 'expanded'=>false,
                 'multiple'=>false
             ))
-            ->add('valider',submitType::class)
         ;
     }
     

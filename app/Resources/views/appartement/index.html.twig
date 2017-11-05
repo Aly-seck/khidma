@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Liste appartements</h1>
 
-    <table class="table table-responsive table-hover">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -21,10 +21,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('appartement_show', { 'id': appartement.id }) }}">show</a>
+                            <a href="{{ path('appartement_show', { 'id': appartement.id }) }}">voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('appartement_edit', { 'id': appartement.id }) }}">edit</a>
+                            <a href="{{ path('appartement_edit', { 'id': appartement.id }) }}">modifier</a>
                         </li>
                     </ul>
                 </td>

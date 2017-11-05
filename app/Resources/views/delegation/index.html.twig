@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Liste délégations</h1>
 
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -35,10 +35,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('delegation_show', { 'id': delegation.id }) }}">show</a>
+                            <a href="{{ path('delegation_show', { 'id': delegation.id }) }}">voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('delegation_edit', { 'id': delegation.id }) }}">edit</a>
+                            <a href="{{ path('delegation_edit', { 'id': delegation.id }) }}">modifier</a>
                         </li>
                     </ul>
                 </td>

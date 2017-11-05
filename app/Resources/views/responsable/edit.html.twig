@@ -1,21 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Responsable edit</h1>
-
+    <h1>Modifier responsable</h1>
+<div class="well">
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
-
     <ul>
-        <li>
-            <a href="{{ path('responsable_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
+        <input class="btn btn-primary btn-sm" type="submit" value="Valider" />
+    {{ form_end(edit_form) }}
+         <a class="btn btn-primary btn-sm" href="{{ path('responsable_index') }}">Retour à la liste</a>
     </ul>
+    <ul>
+        {{ form_start(delete_form) }}
+        <input class="btn btn-outline-danger btn-sm" type="submit" value="supprimer" />
+        {{ form_end(delete_form) }}
+    </ul>
+</div>
 {% endblock %}

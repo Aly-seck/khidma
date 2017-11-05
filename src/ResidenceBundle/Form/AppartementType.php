@@ -26,7 +26,6 @@ class AppartementType extends AbstractType
         'expanded'=>false,
         'multiple'=>false
     ))
-            ->add('valider', submitType::class)
         ;
     }
     

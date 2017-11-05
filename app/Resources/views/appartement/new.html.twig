@@ -1,17 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
+    <div class="container well">
         <h1>Appartement</h1>
         {{ form_start(form,{'method': 'post', 'action': path('appartement_new') }) }}
         <div class="form-group">
             {{ form_row(form.nom,{'attr': {'class': 'form-control', 'placeholder':'Nom appartement'}}) }}
             {{ form_row(form.nombreChambre,{'attr': {'class': 'form-control', 'placeholder':'Le nombre de chambre'}}) }}
             {{ form_row(form.residence,{'attr': {'class': 'form-control', 'placeholder':'Résidence'}}) }}
-            <ul>
-               {{ form_row(form.valider, {'attr': {'class': 'btn btn-primary btn-sm '}}) }}
-                <a class="btn btn-primary btn-sm" href="{{ path('appartement_index') }}">Retour à la liste</a>
-            </ul>
+            <input class="btn btn-primary btn-sm" type="submit" value="Valider" />
+            <a class="btn btn-primary btn-sm" href="{{ path('appartement_index') }}">Retour à la liste</a>
         </div>
         {{ form_end(form) }}
 

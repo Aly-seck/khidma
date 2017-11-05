@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Liste responsables</h1>
 
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -23,10 +23,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('responsable_show', { 'id': responsable.id }) }}">show</a>
+                            <a href="{{ path('responsable_show', { 'id': responsable.id }) }}">voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('responsable_edit', { 'id': responsable.id }) }}">edit</a>
+                            <a href="{{ path('responsable_edit', { 'id': responsable.id }) }}">modifier</a>
                         </li>
                     </ul>
                 </td>

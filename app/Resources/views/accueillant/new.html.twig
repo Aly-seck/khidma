@@ -1,17 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
+    <div class="container well">
         <h1>Accueillant</h1>
         {{ form_start(form,{'method': 'post', 'action': path('accueillant_new') }) }}
         <div class="form-group">
             {{ form_row(form.nom,{'attr': {'class': 'form-control', 'placeholder':'Nom accueillant'}}) }}
             {{ form_row(form.prenom,{'attr': {'class': 'form-control', 'placeholder':'Prénom'}}) }}
             {{ form_row(form.telephone,{'attr': {'class': 'form-control', 'placeholder':'Numero téléphone'}}) }}
-            <ul>
-            {{ form_row(form.valider, {'attr': {'class': 'btn btn-primary btn-sm'}}) }}
+            <input class="btn btn-primary btn-sm" type="submit" value="Valider" />
             <a class="btn btn-primary btn-sm" href="{{ path('accueillant_index') }}">Retour à la liste</a>
-            </ul>
         </div>
      {{ form_end(form) }}
 

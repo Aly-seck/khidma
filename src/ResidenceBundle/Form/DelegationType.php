@@ -3,11 +3,13 @@
 namespace ResidenceBundle\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\DateTime;
@@ -22,13 +24,21 @@ class DelegationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('chef')
+            ->add('chef', textType::class,array(
+            'label'   => 'Chef délégation',))
             ->add('telephone')
             ->add('email',EmailType::class, array(
                 'required'    => true,
                 'constraints' => new Assert\Email(['checkMX' => true]),
                   ))
-            ->add('type')
+            ->add('type',choiceType::class, array(
+                'label'    => 'Cérémonie officielle',
+                'choices' => array(
+                    'présent' => 'présent',
+                    'absent'=> 'absent'),
+                'expanded' => true,
+                'multiple' => false,
+            ))
             ->add('nombrePersonne')
             ->add('lieu')
             ->add('dateArrive', dateTimeType::class,array(
@@ -60,7 +70,6 @@ class DelegationType extends AbstractType
                 'expanded'=>false,
                 'multiple'=>false
             ))
-            ->add('valider',submitType::class)
         ;
     }
     

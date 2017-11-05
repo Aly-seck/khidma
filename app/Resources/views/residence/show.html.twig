@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Residence</h1>
+    <h1>Résidence</h1>
 
-    <table>
+    <table class="table table-striped">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -21,16 +21,12 @@
     </table>
 
     <ul>
-        <li>
-            <a href="{{ path('residence_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('residence_edit', { 'id': residence.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
+        <a class="btn btn-primary btn-sm" href="{{ path('residence_index') }}">Retour à la liste</a>
+        <a class="btn btn-primary btn-sm" href="{{ path('residence_edit', { 'id': residence.id }) }}">Modifier</a>
+    </ul>
+    <ul>
+        {{ form_start(delete_form) }}
+        <input class="btn btn-outline-danger btn-sm" type="submit" value="Supprimer">
+        {{ form_end(delete_form) }}
     </ul>
 {% endblock %}

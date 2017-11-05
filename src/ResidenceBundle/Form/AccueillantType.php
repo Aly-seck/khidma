@@ -20,7 +20,6 @@ class AccueillantType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('telephone')
-            ->add('valider', submitType::class)
         ;
     }
     

@@ -19,7 +19,6 @@ class ResidenceType extends AbstractType
         $builder
             ->add('nom')
             ->add('nombreAppartement')
-            ->add('valider',submitType::class)
         ;
     }
     
