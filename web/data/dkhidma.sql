@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 06, 2017 at 08:34 PM
+-- Generation Time: Nov 06, 2017 at 09:55 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -214,35 +214,35 @@ INSERT INTO `chambre` (`id`, `appartement`, `responsable`, `numero`, `etat`) VAL
 (72, 1, 7, 'DM202', 'disponible'),
 (73, 1, 7, 'DM203', 'disponible'),
 (74, 1, 7, 'DM204', 'disponible'),
-(75, 1, 7, 'DM105', 'disponible'),
-(76, 2, 6, 'H_06', 'disponible'),
-(77, 2, 6, 'H_07', 'disponible'),
-(78, 2, 6, 'H_08', 'disponible'),
-(79, 2, 6, 'H_09', 'disponible'),
-(80, 2, 6, 'H_10', 'disponible'),
-(81, 2, 6, 'H_11', 'disponible'),
-(82, 2, 6, 'H_12', 'disponible'),
-(83, 2, 6, 'H_13', 'disponible'),
-(84, 2, 6, 'H_14', 'disponible'),
-(85, 2, 6, 'H_15', 'disponible'),
-(86, 2, 6, 'H_16', 'disponible'),
-(87, 2, 6, 'H_17', 'disponible'),
-(88, 2, 6, 'H_18', 'disponible'),
-(89, 2, 6, 'H_19', 'disponible'),
-(90, 2, 6, 'H_20', 'disponible'),
-(91, 2, 6, 'H_21', 'disponible'),
-(92, 2, 6, 'H_22', 'disponible'),
-(93, 2, 6, 'H_23', 'disponible'),
-(94, 2, 6, 'H_24', 'disponible'),
-(95, 2, 6, 'H_25', 'disponible'),
-(96, 2, 6, 'H_26', 'disponible'),
-(97, 2, 6, 'H_27', 'disponible'),
-(98, 2, 6, 'H_28', 'disponible'),
-(99, 2, 6, 'H_29', 'disponible'),
-(100, 2, 6, 'H_30', 'disponible'),
-(101, 2, 6, 'H_31', 'disponible'),
-(102, 2, 6, 'H_32', 'disponible'),
-(103, 2, 6, 'H_33', 'disponible');
+(75, 1, 7, 'DM205', 'disponible'),
+(76, 1, 7, 'DM206', 'disponible'),
+(77, 1, 7, 'DM207', 'disponible'),
+(78, 1, 7, 'DM208', 'disponible'),
+(79, 1, 7, 'DM209', 'disponible'),
+(80, 1, 7, 'DM210', 'disponible'),
+(81, 1, 7, 'DM301', 'disponible'),
+(82, 1, 7, 'DM302', 'disponible'),
+(83, 1, 7, 'DM303', 'disponible'),
+(84, 1, 7, 'DM304', 'disponible'),
+(85, 1, 7, 'DM305', 'disponible'),
+(86, 1, 7, 'DM306', 'disponible'),
+(87, 1, 7, 'DM307', 'disponible'),
+(88, 1, 7, 'DM308', 'disponible'),
+(89, 1, 7, 'DM309', 'disponible'),
+(90, 1, 7, 'DM310', 'disponible'),
+(91, 1, 7, 'DM401', 'disponible'),
+(92, 1, 7, 'DM402', 'disponible'),
+(93, 1, 7, 'DM403', 'disponible'),
+(94, 1, 7, 'DM404', 'disponible'),
+(95, 1, 7, 'DM405', 'disponible'),
+(96, 1, 7, 'DM406', 'disponible'),
+(97, 1, 7, 'DM407', 'disponible'),
+(98, 1, 7, 'DM408', 'disponible'),
+(99, 1, 7, 'DM409', 'disponible'),
+(100, 1, 7, 'DM410', 'disponible'),
+(101, 2, 6, 'DM_101', 'disponible'),
+(102, 2, 6, 'DM_102', 'disponible'),
+(103, 2, 6, 'DM_103', 'disponible');
 
 -- --------------------------------------------------------
 
@@ -284,14 +284,6 @@ CREATE TABLE IF NOT EXISTS `delegation` (
   KEY `IDX_292F436DC509E4FF` (`chambre`),
   KEY `IDX_292F436D7F17D8CE` (`accueillant`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `delegation`
---
-
-INSERT INTO `delegation` (`id`, `chambre`, `accueillant`, `chef`, `telephone`, `email`, `type`, `nombrePersonne`, `lieu`, `dateArrive`, `dateRetour`, `addresse`) VALUES
-(1, 2, 1, 'Issa', 4556789, 'hjerrh@hf.com', 'rehgrff', 56, 'HFHEE', '2017-11-16 00:00:00', '2017-11-24 00:00:00', 'ERJKOJT'),
-(2, 3, 1, 'Modou', 3456789, 'edjunc@gmail.com', 'présent', 78, 'hjhi', '2017-11-01 00:00:00', '2017-11-16 00:00:00', 'f uiouhifu');
 
 -- --------------------------------------------------------
 
