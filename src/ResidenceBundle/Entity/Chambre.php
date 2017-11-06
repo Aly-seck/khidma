@@ -22,9 +22,9 @@ class Chambre
     private $id;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="numero", type="integer")
+     * @ORM\Column(name="numero", type="string", length=20)
      */
     private $numero;
 
