@@ -197,4 +197,47 @@ class DelegationController extends Controller
             return $this->genereNom($filename,$file, $facture, $pathtopdf);
         }
     }
+
+
+    /**
+     * Lists all Delegation entities.
+     *
+     * @Route("/", name="delegation_recherche")
+     * @Method("POST")
+     */
+    public function rechercheAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $mot=$request->get('mot');
+        $delegations = $em->getRepository('ResidenceBundle:Delegation')->findBy(
+            array('telephone'=> $mot)
+        );
+
+        if ( $delegations){
+            return $this->render('delegation/index.html.twig', array(
+                'delegations' =>   $delegations,
+            ));
+        }
+
+        else{
+            $delegatio = $em->getRepository('ResidenceBundle:Delegation')->findBy(
+                array('lieu'=> $mot));
+            if ($delegatio){
+                return $this->render('delegation/index.html.twig', array(
+                    'delegations' =>  $delegatio,
+                ));
+            }
+
+            else{
+                $delegati = $em->getRepository('ResidenceBundle:Delegation')->findBy(
+                    array('type'=> $mot));
+
+                return $this->render('delegation/index.html.twig', array(
+                    'delegations' => $delegati,
+                ));
+            }
+        }
+        }
+
 }

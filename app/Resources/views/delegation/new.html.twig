@@ -19,6 +19,7 @@
         {{ form_row(form.chambre,{'attr': {'class': 'form-control', 'placeholder':'Chambre occupée'}}) }}
         {{ form_row(form.accueillant,{'attr': {'class': 'form-control', 'placeholder':'Accueillant'}}) }}
         <input class="btn btn-primary btn-sm" type="submit" value="Valider" />
+        <a class="btn btn-primary btn-sm" href="{{ path('delegation_index') }}">Retour à la liste</a>
     </div>
     {{ form_end(form) }}
 

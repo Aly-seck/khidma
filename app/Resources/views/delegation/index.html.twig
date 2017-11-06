@@ -1,8 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Liste délégations</h1>
 
+    <nav class="nav" >
+        <ul class="nav">
+
+                <form class="form-inline my-2 my-lg-0 mr-lg-2" method="post" action="{{ path('delegation_recherche')}}">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="lieu,type,téléphone..." name="mot">
+                        <span class="input-group-btn">
+                  <button class="btn btn-primary" type="button">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </span>
+                    </div>
+                </form>
+
+        </ul>
+    </nav>
+
+    <h1>Liste délégations</h1>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -46,7 +63,6 @@
         {% endfor %}
         </tbody>
     </table>
-
     <ul>
 
             <a class="btn btn-primary btn-sm" href="{{ path('delegation_new') }}">Ajouter une délégation</a>

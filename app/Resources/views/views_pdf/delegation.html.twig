@@ -50,13 +50,11 @@
         width:100%;
     }
     table.tableAdresse {
-        border:1px;
         width:100%;
         font-size:14px;
         margin-top:10px;
     }
     table.tableAdresse td {
-        border-width:1px;
         padding:10px;
     }
     table.tableAdresse span {
@@ -70,6 +68,7 @@
         border-top:1px;
         border-left:1px;
         border-bottom:1px;
+        text-align:center;
     }
     table.tableDetails td {
         font-size:14px;
@@ -133,13 +132,21 @@
                 <h3>ici logo</h3>
                 {#<img src="{{ asset('img/resid.png') }} " style="size: 12px">#}
             </td>
-        </tr>
-    </table>
+            <td align="center" valign="top">
+              <span>
+                  <strong>Comité d'Organisation du Grand Magal de Touba</strong>
+                           <br/> Commission d'organisation
+                   <br/>Sous commission accueil et hébergement
 
-    <table class="tableInfoClient">
-        <tr>
-            <td>
-                {#<table cellspacing="0" cellpadding="0">#}
+               </span>
+           </td>
+       </tr>
+   </table>
+
+   <table class="tableInfoClient">
+       <tr>
+           <td>
+               {#<table cellspacing="0" cellpadding="0">#}
                     {#<tr>#}
                         {#<td>#}
                             {#Numéro Facture : numfacture#}
@@ -190,24 +197,23 @@
         <tr>
             <td>
                 <span>
-                    Comité d'Organisation du Grand Magal de TOUBA
+                    Liste des délégations des familles religieuses et associations islamiques
                 </span><br><br>
-                Adreessee ici
             </td>
         </tr>
     </table>
 
-    <table class="tableDetails" cellspacing="0">
-        <tr>
+    <table class="tableDetails" cellspacing="0" align="center">
+        <tr style="text-align:center; background-color:#979797">
 
             <td class="detailsTitre_1">
-                Odre
+                Ordre
             </td>
             <td class="detailsTitre_2">
-                Chef de la délègation
+                Lieu
             </td>
              <td class="detailsTitre_2">
-                 Telephone
+                 Chef de la délègation
             </td>
             {#<td class="detailsTitre_2">#}
                 {#Email#}
@@ -233,15 +239,15 @@
                 {#</td>#}
         </tr>
         {% for delegation in delegations %}
-            <tr>
+            <tr style="text-align:center">
                 <td class="details_2">
                     {{ delegation.id }}
                 </td>
                 <td class="details_2">
-                    <strong>{{ delegation.chef }}</strong>
+                    <strong>{{ delegation.lieu }}</strong>
                 </td>
                 <td class="details_2">
-                    <strong>{{ delegation.telephone }}</strong>
+                    <strong>{{ delegation.chef }}</strong>
                 </td>
                 {#<td class="details_2">#}
                     {#<strong>{{ delegation.email }}</strong>#}
